@@ -5,7 +5,7 @@
     <div class="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
       <!-- Brand -->
       <a class="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-        href="/master_tuner_site/code/vue-notus/dist/tables.html">
+        href="/master_tuner/code/vue-notus/dist/tables.html">
         master_tuner
       </a>
       <!-- Form -->

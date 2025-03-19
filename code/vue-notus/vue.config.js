@@ -1,7 +1,7 @@
 // vue.config.js
 module.exports = {
   runtimeCompiler: true,
-  publicPath: '/master_tuner_site/code/vue-notus/dist/',
+  publicPath: '/master_tuner/code/vue-notus/dist/',
   devServer: {
     public: '0.0.0.0:8080'
   }
