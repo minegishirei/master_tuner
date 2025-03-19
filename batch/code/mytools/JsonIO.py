@@ -4,7 +4,7 @@ import os
 import json
 
 class JsonIO():
-    def __init__(self, folder = "/flamevalue"):
+    def __init__(self, folder = "/master_tuner"):
         self.folder = folder
     def read(self,name):
         with open(self.folder + "/" + name + ".json", 'r') as f:

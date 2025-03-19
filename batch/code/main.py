@@ -194,7 +194,7 @@ def build_param(name_original, FLAMEWORKDICT):
     param.update({
         "image" : qiita_tags["icon_url"],
         "wikipedia_related": list(filter(lambda row : (row["name"] in [ row_v2["word"] for row_v2 in wordcount_list]) , FLAMEWORKDICT) ),
-        "title" : f"{name} 「年収/採用企業」 フレームワークの転職評価 FlameValue",
+        "title" : f"{name} 「年収/採用企業」 フレームワークの転職評価 master_tuner",
         "description" : f"{name}の「年収/採用企業情報」。就職・転職前に{name}の働く環境、年収・求人数などをリサーチ。就職・転職のための「{name}」の価値分析チャート、求人情報、フレームワークランキングを掲載。"
     })
     return param
@@ -224,13 +224,13 @@ def GEN_FLAMEWORKDICT(folder):
     return flameworkdict
 
 if __name__=="__main__":
-    FLAMEWORKDICT = GEN_FLAMEWORKDICT("/static/flamevalue/")
-    with open( f'/static/flamevaluedict/flamevaluedict.json', 'w+') as f:
+    FLAMEWORKDICT = GEN_FLAMEWORKDICT("/static/master_tuner/")
+    with open( f'/static/master_tunerdict/master_tunerdict.json', 'w+') as f:
         json.dump(FLAMEWORKDICT, f, indent=4, ensure_ascii=False)
 
     lang_names = ["Python", "Java", "Scala", "Ruby", "PHP", "Javascript", "Typescript", "Rust", "Swift", "Kotlin", "Vue", "React", "MySQL", "PostgreSQL"]
     for lang_name in lang_names:
         if random.random() < 0.5:
-            with open( f'/static/flamevalue/{lang_name}.json', 'w') as f:
+            with open( f'/static/master_tuner/{lang_name}.json', 'w') as f:
                 json.dump(build_param(lang_name, FLAMEWORKDICT), f, indent=4, ensure_ascii=False)
 

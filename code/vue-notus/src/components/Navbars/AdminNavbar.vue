@@ -5,8 +5,8 @@
     <div class="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
       <!-- Brand -->
       <a class="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-        href="/flamevalue_site/code/vue-notus/dist/tables.html">
-        Flamevalue
+        href="/master_tuner_site/code/vue-notus/dist/tables.html">
+        master_tuner
       </a>
       <!-- Form -->
       <form class="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3" method="GET">

@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       lang_info:{
-        title: "プログラミング言語 の年収調査 FlameValue",
+        title: "プログラミング言語 の年収調査 master_tuner",
         image: "https://github.com/minegishirei/techblog/blob/main/0000who/beaver.png?raw=true",
         explain: "プログラミング言語を「上限年収、下限年収、リモート率、求人件数、Qiitaフォロワー数」の五項目から評価しスコアリングするサイトです。プログラミング言語からフレームワークにインフラ、開発手法に至るまでエンジニアリングに関わる全てのスキルをスコアリングしています。"
       }

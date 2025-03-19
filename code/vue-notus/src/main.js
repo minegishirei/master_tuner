@@ -42,7 +42,7 @@ const routes = [
     component: Admin,
     children: [
       {
-        path: "/flamevalue_site/code/vue-notus/dist/index.html",
+        path: "/master_tuner_site/code/vue-notus/dist/index.html",
         component: Dashboard,
       },
       {
@@ -50,11 +50,11 @@ const routes = [
         component: Settings,
       },
       {
-        path: "/flamevalue_site/code/vue-notus/dist/",
+        path: "/master_tuner_site/code/vue-notus/dist/",
         component: Tables,
       },
       {
-        path: "/flamevalue_site/code/vue-notus/dist/tables.html",
+        path: "/master_tuner_site/code/vue-notus/dist/tables.html",
         component: Tables,
       },
       {

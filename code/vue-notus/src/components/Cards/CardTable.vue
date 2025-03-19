@@ -99,7 +99,7 @@ import team1 from "@/assets/img/team-1-800x800.jpg";
 import team2 from "@/assets/img/team-2-800x800.jpg";
 import team3 from "@/assets/img/team-3-800x800.jpg";
 import team4 from "@/assets/img/team-4-470x470.png";
-import labels_meta from '/code/vue-notus/public/flamevalue_meta/labels_meta.json';
+import labels_meta from '/code/vue-notus/public/master_tuner_meta/labels_meta.json';
 
 
 export default {

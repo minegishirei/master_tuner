@@ -27,7 +27,7 @@ import get_lang_url from '../../store/store';
 export default {
   name: "dashboard-page",
   data () {
-    document.title = `${this.$route.query.name} の市場価値はどのくらい? プログラミング言語を年収でスコアリングするサービス FlameValue`;
+    document.title = `${this.$route.query.name} の市場価値はどのくらい? プログラミング言語を年収でスコアリングするサービス master_tuner`;
   },
   components: {
     //CardSettings,

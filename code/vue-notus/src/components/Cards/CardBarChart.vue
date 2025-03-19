@@ -21,8 +21,8 @@
 </template>
 <script>
 import Chart from "chart.js";
-import labels from '/code/vue-notus/public/flamevalue_meta/labels.json';
-import labels_color from '/code/vue-notus/public/flamevalue_meta/labels_color.json';
+import labels from '/code/vue-notus/public/master_tuner_meta/labels.json';
+import labels_color from '/code/vue-notus/public/master_tuner_meta/labels_color.json';
 import get_lang_url from '../../store/store';
 
 function curreyApplyCardBarChart(LangInfo) {
