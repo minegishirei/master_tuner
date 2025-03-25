@@ -18,6 +18,7 @@ import Auth from "@/layouts/Auth.vue";
 // views for Admin layout
 
 import Dashboard from "@/views/admin/Dashboard.vue";
+import Dashboard2 from "@/views/admin/Dashboard2.vue";
 import Settings from "@/views/admin/Settings.vue";
 import Tables from "@/views/admin/Tables.vue";
 import Maps from "@/views/admin/Maps.vue";
@@ -44,6 +45,10 @@ const routes = [
       {
         path: "/master_tuner/code/vue-notus/dist/index.html",
         component: Dashboard,
+      },
+      {
+        path: "/master_tuner/code/vue-notus/dist/index2.html",
+        component: Dashboard2,
       },
       {
         path: "/admin/settings",
