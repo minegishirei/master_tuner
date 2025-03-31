@@ -15,5 +15,6 @@ docker-compose run react-app sh -c "cd /code/vue-notus && npm run build" && git 
 ## start
 
 ```sh
+docker-compose run react-app sh -c "cd /code/vue-notus && npm install"
 docker-compose up
 ```
