@@ -1,5 +1,5 @@
 <template>
-  <div id="myDiagramDiv" style="border: solid 1px black; width: 100%; height: 90vh; background-color: white;"></div>
+  <div id="myDiagramDiv" style=" width: 100%; height: 90vh; background-color: rgba(51, 65, 85, var(--tw-text-opacity));"></div>
 </template>
 
 <script>
@@ -71,6 +71,25 @@ export default {
           return '#155e75'
         }
         
+        go.Shape.defineFigureGenerator('Van', function (shape, w, h) {
+          var geo = go.Geometry.parse(
+            'M37.409,18.905l-4.946-7.924c-0.548-0.878-1.51-1.411-2.545-1.411H3c-1.657,0-3,1.343-3,3v16.86c0,1.657,1.343,3,3,3h0.787 c0.758,1.618,2.391,2.75,4.293,2.75s3.534-1.132,4.292-2.75h20.007c0.758,1.618,2.391,2.75,4.293,2.75 c1.9,0,3.534-1.132,4.291-2.75h0.787c1.656,0,3-1.343,3-3v-2.496C44.75,22.737,41.516,19.272,37.409,18.905z M8.087,32.395 c-1.084,0-1.963-0.879-1.963-1.963s0.879-1.964,1.963-1.964s1.963,0.88,1.963,1.964S9.171,32.395,8.087,32.395z M26.042,21.001 V15.57v-2.999h3.876l5.264,8.43H26.042z M36.671,32.395c-1.084,0-1.963-0.879-1.963-1.963s0.879-1.964,1.963-1.964 s1.963,0.88,1.963,1.964S37.755,32.395,36.671,32.395z'
+          );
+          return geo.scale(w / geo.bounds.width, h / geo.bounds.height);
+        });
+        go.Shape.defineFigureGenerator('SUV', function (shape, w, h) {
+          var geo = go.Geometry.parse(
+            'M246,90.011V59.995c0-5.523-4.48-9.995-10-9.995h-50L156.97,6.416C155.11,3.634,152.34,2,149,2H28 c-5.52,0-10,4.446-10,9.969V30h-8c-4.42,0-8,3.56-8,7.983v40.022C2,82.427,5.58,86,10,86h8v20h16.458 c2.8-15.959,16.702-28.066,33.462-28.066c16.75,0,30.708,12.107,33.518,28.066h72.958c2.8-15.959,16.764-28.066,33.524-28.066 c16.75,0,30.624,12.107,33.434,28.066H250c4.42,0,8-3.563,8-7.985v-8.004H246z M86,50H30V13.97h56V50z M98,50V13.97h48L170,50H98z M68,138c-14.336,0-26.083-11.706-26.083-26.051s11.664-26.014,26-26.014s26,11.669,26,26.014S82.336,138,68,138z M67.917,99.943 c-6.617,0-12,5.386-12,12.006c0,6.621,5.383,12.006,12,12.006s12-5.386,12-12.006C79.917,105.329,74.534,99.943,67.917,99.943z M208,138c-14.337,0-26.083-11.706-26.083-26.051s11.663-26.014,26-26.014s26,11.669,26,26.014S222.337,138,208,138z M207.917,99.943c-6.617,0-12,5.386-12,12.006c0,6.621,5.383,12.006,12,12.006s12-5.386,12-12.006 C219.917,105.329,214.534,99.943,207.917,99.943z'
+          );
+          return geo.scale(w / geo.bounds.width, h / geo.bounds.height);
+        });
+        go.Shape.defineFigureGenerator('Hammer', function (shape, w, h) {
+          var geo = go.Geometry.parse(
+            'M19 5.5a4.5 4.5 0 01-4.791 4.49c-.873-.055-1.808.128-2.368.8l-6.024 7.23a2.724 2.724 0 11-3.837-3.837L9.21 8.16c.672-.56.855-1.495.8-2.368a4.5 4.5 0 015.873-4.575c.324.105.39.51.15.752L13.34 4.66a.455.455 0 00-.11.494 3.01 3.01 0 001.617 1.617c.17.07.363.02.493-.111l2.692-2.692c.241-.241.647-.174.752.15.14.435.216.9.216 1.382zM4 17a1 1 0 100-2 1 1 0 000 2z'
+          );
+          return geo.scale(w / geo.bounds.width, h / geo.bounds.height);
+        });
+        
         // each regular Node has body consisting of a title followed by a collapsible list of actions,
         // controlled by a PanelExpanderButton, with a TreeExpanderButton underneath the body
         myDiagram.nodeTemplate = // the default node template
@@ -119,7 +138,6 @@ export default {
                             name: 'COLLAPSIBLE', // identify to the PanelExpanderButton
                             visible: false, // default close
                             padding: 2,
-                            stretch: go.Stretch.Horizontal, // take up whole available width
                             defaultAlignment: go.Spot.Left, // thus no need to specify alignment on each element
                             defaultSeparatorPadding: 3,
                             itemTemplate: new go.Panel('TableRow').add(
@@ -131,6 +149,7 @@ export default {
                               ) // the Panel created for each item in Panel.itemArray
                           })
                             .theme('background', 'div')
+                            .bind('itemArray', 'actions')
                             ) // end Table panel
                           // bind Panel.itemArray to nodedata.actions
                         ) // end optional Vertical Panel
@@ -153,13 +172,12 @@ export default {
               new go.TextBlock({ font: '10pt Verdana, sans-serif', stroke: 'white' }).bind('text')
             )
         );
-      myDiagram.linkTemplate = new go.Link(
+        myDiagram.linkTemplate = new go.Link(
           { routing: go.Routing.Orthogonal, deletable: false, corner: 10, toShortLength: 4 }
         )
           .add(
-            new go.Shape({ strokeWidth: 2 }).theme('stroke', 'link'),
-            new go.Shape({ toArrow: 'Standard', strokeWidth: 0 }) // the arrowhead
-              .theme('fill', 'link')
+            new go.Shape({ strokeWidth: 2, stroke: 'white' }), // 白色のリンク
+            new go.Shape({ toArrow: 'Standard', strokeWidth: 0, fill: 'white' }) // 白色の矢印
           );
       myDiagram.layout = new go.LayeredDigraphLayout({
           direction: 90, // 上から下に配置 (0: 左→右, 90: 上→下)
